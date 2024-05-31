@@ -1,0 +1,2 @@
+# Paper-Collect-Discord-Bot
+arXivのAPIを用いて収集した論文をWebhookで紐付けたDiscordのチャンネルに転送するBotです
