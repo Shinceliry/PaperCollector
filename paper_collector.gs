@@ -6,7 +6,6 @@ function fetchArxivPapersAndNotify() {
   const arxivApiUrl = `http://export.arxiv.org/api/query?search_query=abs:${encodeURIComponent(query)}+AND+cat:${encodeURIComponent(cat)}&sortBy=submittedDate&sortOrder=descending`;
 
   try {
-    Utilities.sleep(4000);
     let response = UrlFetchApp.fetch(arxivApiUrl, { muteHttpExceptions: true }); // URLからデータ取得
     if (response.getResponseCode() != 200) {
       Logger.log(`Error fetching arXiv data: ${response.getContentText()}`);
@@ -34,7 +33,6 @@ function fetchArxivPapersAndNotify() {
       // Discordのレスポンスをログに記録
       Logger.log(`Discord response code: ${discordResponse.getResponseCode()}`);
       Logger.log(`Discord response: ${discordResponse.getContentText()}`);
-      Utilities.sleep(4000);
     }
 
     updateCache(newPapers);
